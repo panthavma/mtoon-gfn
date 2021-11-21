@@ -5,10 +5,10 @@ using UnityEngine;
 public class GFNViewer : MonoBehaviour
 {
     public Material gfnMaterial;
-    public Vector3 offset = new Vector3(0.0f, 0.0f, 0.0f);
+    public Transform headBone;
 
     public void OnDrawGizmos() {
-        if(gfnMaterial == null)
+        if(gfnMaterial == null || headBone == null)
             return;
 
         Gizmos.color = Color.green;
@@ -23,7 +23,7 @@ public class GFNViewer : MonoBehaviour
             gfnMaterial.GetFloat("_gfnObjectCoordsScaleY"),
             gfnMaterial.GetFloat("_gfnObjectCoordsScaleZ")
         );
-        Vector3 center = new Vector3(-1.0f*centerRaw.x, -1.0f*centerRaw.y, -1.0f*centerRaw.z) + offset;
+        Vector3 center = new Vector3(-1.0f*centerRaw.x, -1.0f*centerRaw.y, -1.0f*centerRaw.z) + headBone.position;
         Vector3 scale = new Vector3(2.0f/scaleRaw.x, 2.0f/scaleRaw.y, 2.0f/scaleRaw.z);
 
         Gizmos.DrawWireCube(center, scale);

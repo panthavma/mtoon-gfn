@@ -177,7 +177,8 @@ float4 frag_forward(v2f i) : SV_TARGET
 
 //[GFN]-----------------------------------------------------------
 // GFN MToon Variation
-    float4 objectCoords = mul(unity_WorldToObject, i.posWorld);
+    float4 objectCoords = mul(_gfnHeadWLMatrix, i.posWorld);
+
     objectCoords = float4((objectCoords + float4(_gfnObjectCoordsTranslateX, _gfnObjectCoordsTranslateY, _gfnObjectCoordsTranslateZ, 0.0)).xyz
                     * float3(_gfnObjectCoordsScaleX, _gfnObjectCoordsScaleY, _gfnObjectCoordsScaleZ), objectCoords.w);
 

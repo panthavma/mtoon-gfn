@@ -8,6 +8,8 @@ float _gfnBendOnXTop = 0.0; float _gfnBendOnXBottom = 42.5; float _gfnBendOnXBot
 float _gfnBendOnXUpperScale = 1.0; float _gfnBendOnXLowerScale = 0.35;
 float _gfnBendOnXUpperLoc = -0.1; float _gfnBendOnXLowerLoc = -0.1;
 
+float4x4 _gfnHeadWLMatrix = float4x4(1.0,0.0,0.0,0.0, 0.0,1.0,0.0,0.0, 0.0,0.0,1.0,0.0, 0.0,0.0,0.0,1.0);
+
 // -----------------------------
 
 
